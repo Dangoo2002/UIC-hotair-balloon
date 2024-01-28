@@ -3,13 +3,15 @@
 
 using namespace std;
 
-void createHotAirBalloon(int size);
+void displayOriginalArt();
+void displayHotAirBalloon();
+void exitProgram();
 
 int main() {
     int choice;
 
     do {
-        cout << " Menu:" << endl;
+        cout << "Menu:" << endl;
         cout << "1. Display Original Art" << endl;
         cout << "2. Display Hot Air Balloon" << endl;
         cout << "3. Exit" << endl;
@@ -18,31 +20,13 @@ int main() {
 
         switch (choice) {
             case 1:
-                
-                  cout << "               ____" << endl;
-                cout << "              /    \\" << endl;
-                cout << "             /      \\" << endl;
-                cout << "             /   U   \\" << endl;
-                cout << "             |   I   |" << endl;
-                cout << "             |   C   |" << endl;
-                cout << "             |       |" << endl;
-                cout << "             \\      /" << endl;
-                cout << "              \\     /" << endl;
-                cout << "               \\   /" << endl;
-                cout << "               =====" << endl;
-                cout << "              \\ || /" << endl;
-                cout << "                ||" << endl;
-                cout << "                ####" << endl;
-                cout << "                ####" << endl;
+                displayOriginalArt();
                 break;
             case 2:
-                int size;
-                cout << "Enter the size of the hot air balloon (2 or above): ";
-                cin >> size;
-                createHotAirBalloon(size);
+                displayHotAirBalloon();
                 break;
             case 3:
-                cout << "Exiting..." << endl;
+                exitProgram();
                 break;
             default:
                 cout << "Invalid choice. Please try again." << endl;
@@ -52,17 +36,37 @@ int main() {
     return 0;
 }
 
-void createHotAirBalloon(int size) {
+void displayOriginalArt() {
+    cout << "               ____" << endl;
+    cout << "              /    \\" << endl;
+    cout << "             /      \\" << endl;
+    cout << "             /   U   \\" << endl;
+    cout << "             |   I   |" << endl;
+    cout << "             |   C   |" << endl;
+    cout << "             |       |" << endl;
+    cout << "             \\      /" << endl;
+    cout << "              \\     /" << endl;
+    cout << "               \\   /" << endl;
+    cout << "               =====" << endl;
+    cout << "              \\ || /" << endl;
+    cout << "                ||" << endl;
+    cout << "                ####" << endl;
+    cout << "                ####" << endl;
+}
+
+void displayHotAirBalloon() {
+    int size;
+    cout << "Enter the size of the hot air balloon (2 or above): ";
+    cin >> size;
+
     int row = 0;
 
-    
     while (row < size) {
         cout << setw(size - row) << setfill(' ') << "";
         cout << setw(2 * row + 1) << setfill('_') << "" << endl;
         row++;
     }
 
- 
     int midRows = size * 2;
     int midCol = size * 2;
     int midCount = 0;
@@ -86,11 +90,9 @@ void createHotAirBalloon(int size) {
         row++;
     }
 
-    
     cout << setw(size - 1) << setfill(' ') << "";
     cout << setw(2 * size + 1) << setfill('=') << "" << endl;
 
-    
     int basketRow = 0;
     while (basketRow < size) {
         cout << setw(size - 1) << setfill(' ') << "";
@@ -98,7 +100,10 @@ void createHotAirBalloon(int size) {
         basketRow++;
     }
 
-    
     cout << setw(size - 1) << setfill(' ') << "";
     cout << "\\" << setw(2 * size - 1) << setfill(' ') << "" << "/" << endl;
+}
+
+void exitProgram() {
+    cout << "Exiting..." << endl;
 }
